@@ -2,12 +2,12 @@ var spawnSync = require('child_process').spawnSync;
 var flow = require('flow-bin');
 var merge = require('lodash.merge');
 
+const dir = process.cwd();
+let client_root = dir.charAt(0).toLowerCase() + dir.slice(1);
+
 var store = {
   error: null,
-  flowOptions: [
-    'status',
-    '--color=always',
-  ],
+  flowOptions: ['status', client_root, '--color=always'],
   options: {
     warn: false,
 
